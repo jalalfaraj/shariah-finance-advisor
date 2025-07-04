@@ -69,6 +69,13 @@ interface in the future |
    pip install -r requirements.txt
 Run Ollama with LLaMA3 locally:
 
+2. 🔐 API Key Required
+This app uses a language model to provide Shariah compliance insights. To use it, 
+you must supply your own API key.
+
+📌 How to Get an API Key
+Please request your FMB LLM API key by contacting the developers or admins at FMB or 
+your organization's admin. Once you have your key:
 bash
 Copy
 Edit
