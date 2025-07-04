@@ -136,9 +136,9 @@ def build_stock_summary_crew(financial_data):
         3. Write a paragraph presenting your findings based on the Islamic texts provided
         4. Focus on factual Islamic finance principles, not investment advice
         
-        Format your response as: "Based on Islamic finance principles, this company..."
+        Format your response as: "Based on Islamic finance principles, this company is halal/haram to invest in.."
         """,
-        expected_output="A paragraph presenting Islamic finance findings related to the stock",
+        expected_output="A paragraph presenting Islamic finance findings related to the stock and a final verdict on whether it is halal or haram to invest in the stock",
         agent=islamic_finance_researcher,
         context=[financial_summary_task]  # This task depends on the first task
     )
