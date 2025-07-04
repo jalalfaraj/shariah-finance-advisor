@@ -1,8 +1,7 @@
-streamlit>=1.32.0
-crewai>=0.24.11
-crewai-tools>=0.1.37
-chromadb>=0.4.24
-requests>=2.31.0
-sentence-transformers>=2.2.2
-pydantic>=2.6.4
-python-dotenv>=1.0.1
+streamlit
+requests
+crewai==0.27.12
+crewai-tools
+chromadb>=0.4.22
+sentence-transformers
+tqdm
