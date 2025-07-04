@@ -93,6 +93,7 @@ Once the repository is downloaded and dependencies are installed, launch the app
 using:
 
 streamlit run app.py
+```bash
 Your app will open in a new browser tab.
 
 ✨ You're all set! Enjoy exploring Shariah-compliant investments.
