@@ -59,41 +59,37 @@ interface in the future |
 - Clear output explaining both financial context and Islamic rulings
 
 ---
-## 🔧 Setup Instructions
 
-### Step 1: Clone the Repository and Install Dependencies
-```bash
-git clone https://github.com/your-username/shariah-finance-advisor.git
-cd shariah-finance-advisor
-pip install -r requirements.txt
-Step 2: Obtain a Free FMP 🔐 API Key
-This application uses Financial Modeling Prep (FMP) to retrieve financial data and 
-provide Shariah compliance insights. You must provide your own API key.
+## Step 2: Obtain a Free FMP 🔐 API Key
 
-📌 How to Get an API Key:
+This application uses Financial Modeling Prep (FMP) to retrieve financial data and provide Shariah compliance insights. You must provide your own API key.
 
-Register for a free account at: https://site.financialmodelingprep.com
+📌 **How to Get an API Key:**
 
-After signing up, copy your personal API key.
+1. Register for a free account at: [https://site.financialmodelingprep.com](https://site.financialmodelingprep.com)
+2. After signing up, copy your personal API key.
 
-Step 3: Install Ollama with LLaMA3 (Local LLM Server)
+---
+
+## Step 3: Install Ollama with LLaMA3 (Local LLM Server)
+
 This app relies on a local lightweight LLM—LLaMA3 (1B model)—served via Ollama:
 
-Install Ollama (available for macOS/Linux/Windows):
-https://ollama.com/download
+1. **Install Ollama** (available for macOS/Linux/Windows):  
+   [https://ollama.com/download](https://ollama.com/download)
 
-Pull the LLaMA 3.2 1B Model:
+2. **Pull the LLaMA 3.2 1B Model:**
 
-ollama pull llama3.2:1b
-Start the Model Server:
-
-ollama run llama3.2:1b
-Step 4: Start the Application
-Once the repository is downloaded and dependencies are installed, launch the app 
-using:
-
-streamlit run app.py
 ```bash
+ollama pull llama3.2:1b
+```
+
+Finally run this from the directory where the github repository was downloaded:
+
+```bash
+streamlit run app.py
+```
+
 Your app will open in a new browser tab.
 
 ✨ You're all set! Enjoy exploring Shariah-compliant investments.
