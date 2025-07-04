@@ -76,22 +76,20 @@ you must supply your own API key.
 Please request your FMB LLM API key by creating a free account at this webiste: 
 https://site.financialmodelingprep.com/
 
-3. Run Ollama with LLaMA3 locally:
-bash
-Copy
-Edit
-ollama run llama3
-Set up ChromaDB by running:
+3. Install Ollama with LLaMA3 locally:
+# 1. Install Ollama (macOS/Linux/Windows): https://ollama.com/download
 
-bash
-Copy
-Edit
-chroma run
+# 2. Pull the LLaMA 3.2 1B model
+ollama pull llama3.2:1b
+
+# 3. Start the model server
+ollama run llama3.2:1b
 Start the app:
 
-bash
-Copy
-Edit
+###
+Once the github repository has been downloaded locally run the command below in the 
+terminal.
+###
 python app.py
 🛤️ Future Work
 Zakat Calculators: Automatically compute annual zakat due based on user input.
