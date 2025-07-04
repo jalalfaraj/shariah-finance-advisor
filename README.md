@@ -109,7 +109,7 @@ Streamlit Web Interface: Fully functional front-end app for wider access and
 usability.
 
 ---
-##📚 Islamic Sources
+## 📚 Islamic Sources
 You can add your own Shariah-compliant PDFs to the rag_tool.add() section in the 
 script. Recommended texts include:
 
