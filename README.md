@@ -94,8 +94,8 @@ Your app will open in a new browser tab.
 
 ✨ You're all set! Enjoy exploring Shariah-compliant investments.
 
-
-🛤️ Future Work
+---
+## 🛤️ Future Work
 Zakat Calculators: Automatically compute annual zakat due based on user input.
 
 Expense Audits: Help Muslims check if their spending is halal.
@@ -108,13 +108,14 @@ alternatives.
 Streamlit Web Interface: Fully functional front-end app for wider access and 
 usability.
 
-📚 Islamic Sources
+---
+##📚 Islamic Sources
 You can add your own Shariah-compliant PDFs to the rag_tool.add() section in the 
 script. Recommended texts include:
 
 Mufti Taqi Usmani’s Islamic Finance publications
 
-
-📫 Contact
+---
+## 📫 Contact
 Have ideas or want to contribute? Email: farajj7@gmail.com
 
