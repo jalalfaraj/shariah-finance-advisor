@@ -5,4 +5,6 @@ crewai-tools
 chromadb>=0.4.22
 sentence-transformers
 tqdm
+pysqlite3-binary
+python-dotenv
 

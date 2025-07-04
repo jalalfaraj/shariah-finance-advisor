@@ -7,6 +7,12 @@ Created on Fri Jul  4 14:29:59 2025
 """
 
 # app.py
+# Monkey patch to force Chroma to use the upgraded sqlite from pysqlite3
+import sys
+import importlib
+
+sys.modules["sqlite3"] = importlib.import_module("pysqlite3")
+
 import streamlit as st
 import requests
 from crewai import Agent, Task, Crew, LLM
