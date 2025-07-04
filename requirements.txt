@@ -1,3 +1,4 @@
+python-3.11.8
 streamlit
 crewai>=0.28.6
 crewai-tools
@@ -7,3 +8,4 @@ requests
 python-dotenv
 litellm
 openai
+
