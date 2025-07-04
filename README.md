@@ -67,15 +67,16 @@ interface in the future |
    git clone https://github.com/your-username/shariah-finance-advisor
    cd shariah-finance-advisor
    pip install -r requirements.txt
-Run Ollama with LLaMA3 locally:
 
-2. 🔐 API Key Required
+2. Free FMB 🔐 API Key Required
 This app uses a language model to provide Shariah compliance insights. To use it, 
 you must supply your own API key.
 
 📌 How to Get an API Key
-Please request your FMB LLM API key by contacting the developers or admins at FMB or 
-your organization's admin. Once you have your key:
+Please request your FMB LLM API key by creating a free account at this webiste: 
+https://site.financialmodelingprep.com/
+
+3. Run Ollama with LLaMA3 locally:
 bash
 Copy
 Edit
