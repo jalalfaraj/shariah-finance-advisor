@@ -59,38 +59,57 @@ interface in the future |
 - Clear output explaining both financial context and Islamic rulings
 
 ---
-
 ## 🔧 Setup Instructions
 
-1. Clone the repo and install dependencies:
-   ```bash
-   git clone https://github.com/your-username/shariah-finance-advisor
-   cd shariah-finance-advisor
-   pip install -r requirements.txt
+### Step 1: Clone the Repository and Install Dependencies
+```bash
+git clone https://github.com/your-username/shariah-finance-advisor.git
+cd shariah-finance-advisor
+pip install -r requirements.txt
+Step 2: Obtain a Free FMP 🔐 API Key
+This application uses Financial Modeling Prep (FMP) to retrieve financial data and 
+provide Shariah compliance insights. You must provide your own API key.
 
-2. Free FMB 🔐 API Key Required
-This app uses a language model to provide Shariah compliance insights. To use it, 
-you must supply your own API key.
+📌 How to Get an API Key:
 
-📌 How to Get an API Key
-Please request your FMB LLM API key by creating a free account at this webiste: 
-https://site.financialmodelingprep.com/
+Register for a free account at: https://site.financialmodelingprep.com
 
-3. Install Ollama with LLaMA3 locally:
-# 1. Install Ollama (macOS/Linux/Windows): https://ollama.com/download
+After signing up, copy your personal API key.
 
-# 2. Pull the LLaMA 3.2 1B model
+Step 3: Install Ollama with LLaMA3 (Local LLM Server)
+This app relies on a local lightweight LLM—LLaMA3 (1B model)—served via Ollama:
+
+Install Ollama (available for macOS/Linux/Windows):
+https://ollama.com/download
+
+Pull the LLaMA 3.2 1B Model:
+
+bash
+Copy
+Edit
 ollama pull llama3.2:1b
+Start the Model Server:
 
-# 3. Start the model server
+bash
+Copy
+Edit
 ollama run llama3.2:1b
-Start the app:
+Step 4: Start the Application
+Once the repository is downloaded and dependencies are installed, launch the app 
+using:
 
-###
-Once the github repository has been downloaded locally run the command below in the 
-terminal.
-###
-python app.py
+bash
+Copy
+Edit
+streamlit run app.py
+Your app will open in a new browser tab.
+
+✨ You're all set! Enjoy exploring Shariah-compliant investments.
+
+Copy
+Edit
+
+
 🛤️ Future Work
 Zakat Calculators: Automatically compute annual zakat due based on user input.
 
