@@ -1,7 +1,9 @@
+python-3.10
 streamlit
 requests
-crewai==0.27.12
+crewai==0.140.0
 crewai-tools
 chromadb>=0.4.22
 sentence-transformers
 tqdm
+
