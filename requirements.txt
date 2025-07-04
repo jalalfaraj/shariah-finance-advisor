@@ -2,7 +2,6 @@ streamlit
 requests
 crewai==0.140.0
 crewai-tools
-sqlite3 >= 3.35.0
 chromadb>=0.4.22
 sentence-transformers
 tqdm
