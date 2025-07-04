@@ -1,0 +1,9 @@
+streamlit
+crewai>=0.28.6
+crewai-tools
+chromadb
+sentence-transformers
+requests
+python-dotenv
+litellm
+openai
