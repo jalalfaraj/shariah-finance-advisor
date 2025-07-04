@@ -84,30 +84,18 @@ https://ollama.com/download
 
 Pull the LLaMA 3.2 1B Model:
 
-bash
-Copy
-Edit
 ollama pull llama3.2:1b
 Start the Model Server:
 
-bash
-Copy
-Edit
 ollama run llama3.2:1b
 Step 4: Start the Application
 Once the repository is downloaded and dependencies are installed, launch the app 
 using:
 
-bash
-Copy
-Edit
 streamlit run app.py
 Your app will open in a new browser tab.
 
 ✨ You're all set! Enjoy exploring Shariah-compliant investments.
-
-Copy
-Edit
 
 
 🛤️ Future Work
