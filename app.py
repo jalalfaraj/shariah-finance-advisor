@@ -16,7 +16,6 @@ import requests
 from crewai import Agent, Task, Crew, LLM
 from chromadb import PersistentClient
 from chromadb.utils import embedding_functions
-from langchain_groq import ChatGroq
 
 
 
