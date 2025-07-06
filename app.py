@@ -13,14 +13,31 @@ import requests
 from crewai import Agent, Task, Crew, LLM
 from chromadb import PersistentClient
 from chromadb.utils import embedding_functions
+from langchain_groq import ChatGroq
+
 
 # === LLM Setup ===
-langchain_llm = LLM(
-    base_url="http://localhost:11434",
-    model="ollama/llama3.2:1b",
-    temperature=0.3,
-    max_tokens=2000
-)
+# =============================================================================
+# langchain_llm = LLM(
+#     base_url="http://localhost:11434",
+#     model="ollama/llama3.2:1b",
+#     temperature=0.3,
+#     max_tokens=2000
+# )
+# =============================================================================
+
+
+def llm_config(api_key_llm):
+    langchain_llm = LLM(
+        model="groq/llama-3.3-70b-versatile",
+        api_key=api_key_llm,             
+        max_completion_tokens=2000,
+        top_p=1,
+        stream=True,
+        stop=None,
+    )
+    return langchain_llm
+    
 
 # === Chroma Connection ===
 client = PersistentClient(path="./chroma_db")
@@ -58,7 +75,7 @@ def fetch_fmp_data(ticker, api_key):
     except Exception as e:
         return {"error": str(e)}
 
-def build_stock_summary_crew(financial_data):
+def build_stock_summary_crew(financial_data, llm_model):
     summary = (
         f"Sector: {financial_data.get('sector', 'N/A')}. "
         f"Interest income represents {financial_data.get('interest_pct', 0)}% of revenue. "
@@ -79,7 +96,7 @@ def build_stock_summary_crew(financial_data):
         metrics factually. You explain what numbers mean without giving investment 
         advice. You always provide analysis when given financial data.""",
         verbose=False,
-        llm=langchain_llm
+        llm=llm_model
     )
     
     # Agent 2: Islamic Finance Researcher  
@@ -92,7 +109,7 @@ def build_stock_summary_crew(financial_data):
         business sectors, and Sharia compliance. You present factual findings without 
         giving advice.""",
         verbose=False,
-        llm=langchain_llm
+        llm=llm_model
     )
     
     # Task 1: Financial Summary
@@ -109,7 +126,9 @@ def build_stock_summary_crew(financial_data):
         3. Describe the overall financial structure these metrics suggest
         4. Use factual, descriptive language
         5. Do not refuse - this is standard financial data interpretation
-        
+        6. Find out what the company sells (and include it in you summary), don't just look at the sector
+        7. Investigate stocks in the 'Consumer Defensive' sector to insure they don't sell
+        Alcohol, or pork
         Write as: "This company's financial metrics show..."
         """,
         expected_output="A factual paragraph interpreting the financial metrics",
@@ -135,10 +154,12 @@ def build_stock_summary_crew(financial_data):
         
         3. Write a paragraph presenting your findings based on the Islamic texts provided
         4. Focus on factual Islamic finance principles, not investment advice
+        5. Do not give a vague response or include 'maybe' in your response
+        6. Give a final haram/halal verdict
         
         Format your response as: "Based on Islamic finance principles, this company is halal/haram to invest in.."
         """,
-        expected_output="A paragraph presenting Islamic finance findings related to the stock and a final verdict on whether it is halal or haram to invest in the stock",
+        expected_output="two or three paragraph presenting Islamic finance findings related to the stock and a final verdict on whether it is halal or haram to invest in the stock",
         agent=islamic_finance_researcher,
         context=[financial_summary_task]  # This task depends on the first task
     )
@@ -154,21 +175,24 @@ def build_stock_summary_crew(financial_data):
 # === Streamlit UI ===
 st.title("📊 Shariah Stock Screener")
 api_key = st.text_input("🔑 Enter your FinancialModelingPrep API Key", type="password")
+grok_api_key = st.text_input("Enter your Grok API Key:", type="password")
 ticker = st.text_input("🏢 Enter a stock ticker (e.g., TSLA, RDDT)")
 
 if st.button("Analyze"):
-    if not api_key or not ticker:
-        st.warning("Please enter both your API key and a valid stock ticker.")
+    if not api_key or not ticker or not grok_api_key:
+        st.warning("Please enter both your API keys and a valid stock ticker.")
     else:
         with st.spinner("🔎 Fetching data and analyzing..."):
             data = fetch_fmp_data(ticker.upper(), api_key)
+            llm_model_ = llm_config(grok_api_key)
+            
             if "error" in data:
                 st.error(f"❌ Error: {data['error']}")
             else:
                 st.write("## 🔍 Financial Summary")
                 st.write(data)
 
-                crew = build_stock_summary_crew(data)
+                crew = build_stock_summary_crew(data, llm_model_)
                 result = crew.kickoff()
 
                 st.write("## 📜 Islamic Finance Assessment")
