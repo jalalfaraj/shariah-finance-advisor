@@ -22,7 +22,7 @@ business sector, according to Shariah law.
 |-----------|---------|
 | **[CrewAI](https://docs.crewai.com/)** | Framework for creating multi-agent 
 collaborative AI systems |
-| **Ollama LLaMA3** | Local large language model used to perform reasoning and 
+| **Groq LLaMA3** | Online Groq large language model used to perform reasoning and 
 generate human-like answers |
 | **ChromaDB** | Vector database used to store and retrieve Islamic finance 
 documents |
@@ -71,18 +71,9 @@ This application uses Financial Modeling Prep (FMP) to retrieve financial data a
 
 ---
 
-## Step 3: Install Ollama with LLaMA3 (Local LLM Server)
-
-This app relies on a local lightweight LLM—LLaMA3 (1B model)—served via Ollama:
-
-1. **Install Ollama** (available for macOS/Linux/Windows):  
-   [https://ollama.com/download](https://ollama.com/download)
-
-2. **Pull the LLaMA 3.2 1B Model:**
-
-```bash
-ollama pull llama3.2:1b
-```
+## Step 3: Get a FREE API key from Groq (this is to run requests on the LLM model in the app).
+Setup on account and request a FREE API key to use.
+https://console.groq.com/keys
 
 Finally run this from the directory where the github repository was downloaded:
 
