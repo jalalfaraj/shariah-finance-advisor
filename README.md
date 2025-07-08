@@ -106,6 +106,9 @@ script. Recommended texts include:
 
 Mufti Taqi Usmani’s Islamic Finance publications
 
+## Link to the streamlit application:
+https://shariah-finance-advisor-nxt6ehjv7gxzbomzethfvs.streamlit.app/
+
 ---
 ## 📫 Contact
 Have ideas or want to contribute? Email: farajj7@gmail.com
